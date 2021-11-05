@@ -57,7 +57,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("events.edit", ['event' => Event::find($id)]);
     }
 
     /**
@@ -69,7 +69,14 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:100',
+            'date' => 'required|max:100',
+            'description' => 'required|max:2000',
+        ]);
+        
+        Event::find($id)->update($request->except(['id', '_token']));
+        return redirect()->route('events.index');
     }
 
     /**
