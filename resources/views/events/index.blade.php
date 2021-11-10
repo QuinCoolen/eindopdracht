@@ -7,24 +7,29 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Historical Events</title>
 </head>
-<body>
-    <h1>Historical Events</h1>
-    <button onclick="window.location.href = '/events/create';">Add New Event</button>
-    @foreach ($events as $event)
-        <ul>
-            <li>{{$event->id}}</li>
-            <li>{{$event->name}}</li>
-            <li>{{$event->date}}</li>
-            <li>{{$event->description}}</li>
-            <li><button onclick="window.location.href = '/events/{{$event->id}}/edit';">Edit</button></li>
-            <li>
-                <form action="{{ route('events.destroy', $event->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        </ul>
-    @endforeach
+<body class="grid grid-cols-3 h-screen">
+    <div class="col-start-2 flex flex-col flex-nowrap">
+        <h1 class="text-3xl text-center">Historical Events</h1>
+        <br/>
+        <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded" onclick="window.location.href = '/events/create';">Add New Event</button>
+        <br/>
+        <div class="flex flex-col flex-nowrap gap-5">
+            @foreach ($events as $event)
+                <ul class="space-y-3 p-2 border-4 border-light-blue-500 border-opacity-100">
+                    <li>{{$event->name}}</li>
+                    <li>{{$event->date}}</li>
+                    <li>{{$event->description}}</li>
+                    <li><button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onclick="window.location.href = '/events/{{$event->id}}/edit';">Edit</button></li>
+                    <li>
+                        <form action="{{ route('events.destroy', $event->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded" type="submit">Delete</button>
+                        </form>
+                    </li>
+                </ul>
+            @endforeach
+        </div>
+    </div>
 </body>
 </html>
