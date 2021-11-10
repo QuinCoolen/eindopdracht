@@ -24,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view("events.create");
     }
 
     /**
@@ -35,7 +35,14 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:100',
+            'date' => 'required|max:100',
+            'description' => 'required|max:2000',
+        ]);
+
+        Event::create($request->except('_token'));
+        return redirect()->route('events.index');
     }
 
     /**
@@ -87,6 +94,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Event::find($id)->delete();
+        return redirect()->route('events.index');
     }
 }
