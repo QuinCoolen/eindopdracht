@@ -9,7 +9,7 @@
 </head>
 <body class="grid grid-cols-3 h-screen">
     <div class="col-start-2 flex flex-col flex-nowrap">
-        <h1 class="text-3xl text-center">Historical Events</h1>
+        <h1 class="mt-5 text-3xl text-center">Historical Events</h1>
         <br/>
         <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded" onclick="window.location.href = '/events/create';">Add New Event</button>
         <br/>
