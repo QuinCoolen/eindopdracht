@@ -8,12 +8,18 @@
     <title>Add New Event</title>
 </head>
 <body>
-    <form action="{{ route('events.store') }}" method="POST">
-        @csrf
-        <input type="text" name="name" id="name" required>
-        <input type="date" name="date" id="date" required>
-        <input type="text" name="description" id="description" required>
-        <button type="submit">Submit</button>
-    </form>
+    <button class="fixed ml-5 mt-5 bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded" onclick="window.location.href = '/events';"">Back</button>
+    <div class="grid place-items-center h-screen">
+        <div class="flex flex-col text-center gap-4 border-4 border-blue-500 border-opacity-75 p-2 rounded">
+            <h1 class="text-xl">Add New Event</h1>
+            <form class="flex flex-col gap-4" action="{{ route('events.store') }}" method="POST">
+                @csrf
+                <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="name" id="name" required>
+                <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="date" name="date" id="date" required>
+                <input class="flex-shrink w-52 m-auto text-center px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200" type="text" name="description" id="description" required>
+                <button class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded" onclick="window.location.href = '/events/create';"" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
