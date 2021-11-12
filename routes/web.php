@@ -29,3 +29,12 @@ Route::get('/events/{id}/edit', [EventController::class, 'edit'])->name('events.
 Route::put('/events/{id}', [EventController::class, 'update'])->name('events.update');
 
 Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+
+/* 
+Zelf Reflectie:
+Ik vond het een erg fijne module. Ik heb veel geleerd, vooral tijdens het maken van de eindopdracht.
+Ik vond met laravel werken op het begin een beetje vaag, maar het klikte al erg snel.
+Tailwind gebruiken vond ik ook erg fijn en gemakkelijk, maar het maakt de code een beetje onoverzichtelijk.
+De uitleg was erg duidelijk en fijn, en de opdrachten waren fijn en duidelijk.
+Met het hele bronze, zilver en goud gedoe vond ik erg relaxed werken en geeft je ook meer motivatie om verder te werken.
+*/
